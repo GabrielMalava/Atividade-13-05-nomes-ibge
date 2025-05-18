@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Nomes - IBGE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Consulta de Nomes - IBGE</h1>
+
+  <section>
+    <h2> Evolução de um Nome</h2>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="inicio" placeholder="Início (ex: 1930)">
+    <input type="text" id="fim" placeholder="Fim (ex: 2020)">
+    <button onclick="consultarNome()">Buscar</button>
+  </section>
+
+  <section>
+    <h2> Nomes Mais Comuns por Localidade</h2>
+    <div class="search-container">
+      <input type="text" id="uf" placeholder="UF (ex: 35 para SP)">
+      <button onclick="consultarLocalidade()">Buscar</button>
+      <button type="button" class="help-button" onclick="toggleUFLegend()">?</button>
+    </div>
+    
+    <div id="uf-legend" class="uf-legend" style="display: none;">
+      <h3>Códigos das UFs:</h3>
+      <div class="uf-grid">
+        <div class="uf-item"><strong>11</strong> - Rondônia (RO)</div>
+        <div class="uf-item"><strong>12</strong> - Acre (AC)</div>
+        <div class="uf-item"><strong>13</strong> - Amazonas (AM)</div>
+        <div class="uf-item"><strong>14</strong> - Roraima (RR)</div>
+        <div class="uf-item"><strong>15</strong> - Pará (PA)</div>
+        <div class="uf-item"><strong>16</strong> - Amapá (AP)</div>
+        <div class="uf-item"><strong>17</strong> - Tocantins (TO)</div>
+        <div class="uf-item"><strong>21</strong> - Maranhão (MA)</div>
+        <div class="uf-item"><strong>22</strong> - Piauí (PI)</div>
+        <div class="uf-item"><strong>23</strong> - Ceará (CE)</div>
+        <div class="uf-item"><strong>24</strong> - Rio Grande do Norte (RN)</div>
+        <div class="uf-item"><strong>25</strong> - Paraíba (PB)</div>
+        <div class="uf-item"><strong>26</strong> - Pernambuco (PE)</div>
+        <div class="uf-item"><strong>27</strong> - Alagoas (AL)</div>
+        <div class="uf-item"><strong>28</strong> - Sergipe (SE)</div>
+        <div class="uf-item"><strong>29</strong> - Bahia (BA)</div>
+        <div class="uf-item"><strong>31</strong> - Minas Gerais (MG)</div>
+        <div class="uf-item"><strong>32</strong> - Espírito Santo (ES)</div>
+        <div class="uf-item"><strong>33</strong> - Rio de Janeiro (RJ)</div>
+        <div class="uf-item"><strong>35</strong> - São Paulo (SP)</div>
+        <div class="uf-item"><strong>41</strong> - Paraná (PR)</div>
+        <div class="uf-item"><strong>42</strong> - Santa Catarina (SC)</div>
+        <div class="uf-item"><strong>43</strong> - Rio Grande do Sul (RS)</div>
+        <div class="uf-item"><strong>50</strong> - Mato Grosso do Sul (MS)</div>
+        <div class="uf-item"><strong>51</strong> - Mato Grosso (MT)</div>
+        <div class="uf-item"><strong>52</strong> - Goiás (GO)</div>
+        <div class="uf-item"><strong>53</strong> - Distrito Federal (DF)</div>
+      </div>
+    </div>
+    
+    <div id="resultado-localidade"></div>
+  </section>
+
+  <section>
+    <h2> Comparar Dois Nomes</h2>
+    <input type="text" id="nome1" placeholder="Nome 1">
+    <input type="text" id="nome2" placeholder="Nome 2">
+    <button onclick="compararNomes()">Comparar</button>
+  </section>
+
+  <div id="grafico-container">
+    <canvas id="grafico"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <script src="charts.js"></script>
+</body>
+</html>
